@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>CC Quote</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body onload="getRandomQuote()">
+
+  <div>
+    <h1 id="titilequote"></h1>
+    <h2 id="quotesource"></h2>
+  </div>
+
+  <button onclick="getRandomQuote()">Next Quote</button>
+
+</body>
+<script>
+
+// generate random number
+function randomizedNumber(minNum, maxNum)
+{
+  return Math.floor(Math.random() * (maxNum - minNum + 1) + minNum);
+};
+
+// get random quote
+function getRandomQuote() {
+
+  var jsondata = [
+    {
+      "firstName":"Rostik",
+      "lastName":"Loh",
+      "href":"http://huy.nl"
+    },
+    {
+      "firstName":"Nazar",
+      "lastName":"Huy",
+      "href":"http://huy.nl"
+    },
+    {
+      "firstName":"Sraka",
+      "lastName":"Piska",
+      "href":"http://huy.nl"
+    }
+  ];
+
+  var arrayLength = jsondata.length;
+  var index = randomizedNumber(0,arrayLength);
+
+  document.getElementById("titilequote").innerHTML =
+  jsondata[index].firstName;
+
+  document.getElementById("quotesource").innerHTML =
+  jsondata[index].lastName.link(jsondata[index].href);
+}
+
+</script>
+</html>
